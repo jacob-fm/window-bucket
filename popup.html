@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Window Bucket</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Window Bucket</h1>
+    <span id="tab-count" class="muted"></span>
+  </header>
+
+  <form id="save-form">
+    <input id="bucket-name" type="text" placeholder="Bucket name" autocomplete="off" maxlength="80">
+    <div class="actions">
+      <button type="submit" data-close="true" class="primary" title="Save all tabs and close this window">Save &amp; close window</button>
+      <button type="submit" data-close="false" title="Save all tabs and keep this window open">Save only</button>
+    </div>
+  </form>
+
+  <section>
+    <h2>Buckets</h2>
+    <p id="empty" class="muted" hidden>No buckets yet. Save a window to create one.</p>
+    <ul id="bucket-list"></ul>
+  </section>
+
+  <template id="bucket-template">
+    <li class="bucket">
+      <div class="bucket-main">
+        <button class="toggle" title="Show tabs">▸</button>
+        <div class="bucket-info">
+          <span class="bucket-name"></span>
+          <span class="bucket-meta muted"></span>
+        </div>
+        <button class="restore primary" title="Open these tabs in a new window">Restore</button>
+        <button class="delete icon" title="Delete bucket">✕</button>
+      </div>
+      <ul class="tab-list" hidden></ul>
+    </li>
+  </template>
+
+  <script src="popup.js"></script>
+</body>
+</html>
